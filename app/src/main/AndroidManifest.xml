@@ -23,6 +23,9 @@
         <activity android:name=".window.WindowActivity">
 
         </activity>
+        <activity android:name=".animation.AnimationActivity">
+
+        </activity>
     </application>
 
 </manifest>

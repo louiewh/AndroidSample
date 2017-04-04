@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.dawang.androidexample.animation.AnimationActivity;
 import com.dawang.androidexample.http.HttpsActivity;
 import com.dawang.androidexample.window.WindowActivity;
 
@@ -49,6 +50,10 @@ public class MainActivity extends AppCompatActivity {
                         Intent  intentWindow = new Intent();
                         intentWindow.setClass(mContext, WindowActivity.class);
                         mContext.startActivity(intentWindow);
+                    case 2:
+                        Intent  intentAnimation = new Intent();
+                        intentAnimation.setClass(mContext, AnimationActivity.class);
+                        mContext.startActivity(intentAnimation);
                         break;
                     default:
                         break;

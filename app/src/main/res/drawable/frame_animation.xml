@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="true">
+    <!--
+        根标签为animation-list，其中oneshot代表着是否只展示一遍，设置为false会不停的循环播放动画
+        根标签下，通过item标签对动画中的每一个图片进行声明
+        android:duration 表示展示所用的该图片的时间长度
+
+        每个item就是一帧，drawable是该帧显示的图片，duration是显示时间，
+        android:oneshot=”false”表示动画一直进行，若为true则表示只播放一次动画
+     -->
+    <item android:drawable="@drawable/rat" android:duration="500" />
+    <item android:drawable="@drawable/cow" android:duration="500" />
+    <item android:drawable="@drawable/tiger" android:duration="500" />
+    <item android:drawable="@drawable/rabbit" android:duration="500" />
+    <item android:drawable="@drawable/dragon" android:duration="500" />
+    <item android:drawable="@drawable/snake" android:duration="500" />
+    <item android:drawable="@drawable/horse" android:duration="500" />
+    <item android:drawable="@drawable/sheep" android:duration="500" />
+    <item android:drawable="@drawable/monkey" android:duration="500" />
+    <item android:drawable="@drawable/cow" android:duration="500" />
+    <item android:drawable="@drawable/dog" android:duration="500" />
+    <item android:drawable="@drawable/pig" android:duration="500" />
+</animation-list>

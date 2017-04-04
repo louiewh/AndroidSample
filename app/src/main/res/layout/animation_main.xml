@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.dawang.androidexample.animation.AnimationActivity">
+
+    <TextView
+        android:id="@+id/animation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:textSize="25dp"
+        android:text="Hello World!" />
+
+    <TextView
+        android:id="@+id/scale_animation"
+        android:layout_toRightOf="@id/animation"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:textSize="25dp"
+        android:text="Hello World!" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rote_animation"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/scale_animation"
+        android:src="@drawable/androidicon"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/alpha_animation"
+        android:layout_below="@id/animation"
+        android:layout_toRightOf="@id/rote_animation"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/girl_bule"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/set_animation"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/alpha_animation"
+        android:src="@drawable/strawberry"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/frame_animation"
+        android:layout_centerInParent="true"
+        android:background="@drawable/rat"/>
+</RelativeLayout>
