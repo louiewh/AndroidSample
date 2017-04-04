@@ -20,6 +20,9 @@
         <activity android:name=".http.HttpsActivity">
 
         </activity>
+        <activity android:name=".window.WindowActivity">
+
+        </activity>
     </application>
 
 </manifest>

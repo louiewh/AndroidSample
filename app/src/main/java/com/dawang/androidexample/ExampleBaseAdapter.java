@@ -12,7 +12,8 @@ import android.widget.TextView;
 
 public class ExampleBaseAdapter extends BaseAdapter {
     Context mContext;
-    String[] mList = {"Http"};
+    String[] mList = {"Http",
+                       "Window" };
 
     ExampleBaseAdapter(Context context){
         mContext = context;

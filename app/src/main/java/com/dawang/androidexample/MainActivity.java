@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.dawang.androidexample.http.HttpsActivity;
+import com.dawang.androidexample.window.WindowActivity;
 
 public class MainActivity extends AppCompatActivity {
     Context mContext;
@@ -43,6 +44,11 @@ public class MainActivity extends AppCompatActivity {
                         Intent  intentHttp = new Intent();
                         intentHttp.setClass(mContext, HttpsActivity.class);
                         mContext.startActivity(intentHttp);
+                        break;
+                    case 1:
+                        Intent  intentWindow = new Intent();
+                        intentWindow.setClass(mContext, WindowActivity.class);
+                        mContext.startActivity(intentWindow);
                         break;
                     default:
                         break;
