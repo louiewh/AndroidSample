@@ -15,7 +15,8 @@ public class ExampleBaseAdapter extends BaseAdapter {
     String[] mList = {
             "Http",
             "Window",
-            "Animation"
+            "Animation",
+            "Aidl"
     };
 
     ExampleBaseAdapter(Context context){

@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
     Context mContext;
     ListView mListView;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +53,11 @@ public class MainActivity extends AppCompatActivity {
                         Intent  intentAnimation = new Intent();
                         intentAnimation.setClass(mContext, AnimationActivity.class);
                         mContext.startActivity(intentAnimation);
+                        break;
+                    case 3:
+                        Intent  intentAidl = new Intent();
+                        intentAidl.setClassName("com.example.louiewh.aidlapplication", "com.example.louiewh.aidlapplication.MainActivity");
+                        mContext.startActivity(intentAidl);
                         break;
                     default:
                         break;
