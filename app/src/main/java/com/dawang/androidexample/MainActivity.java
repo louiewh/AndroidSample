@@ -10,6 +10,7 @@ import android.widget.ListView;
 
 import com.dawang.androidexample.animation.AnimationActivity;
 import com.dawang.androidexample.http.HttpsActivity;
+import com.dawang.androidexample.mvp.view.MvpActivity;
 import com.dawang.androidexample.window.WindowActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -59,6 +60,10 @@ public class MainActivity extends AppCompatActivity {
                         intentAidl.setClassName("com.example.louiewh.aidlapplication", "com.example.louiewh.aidlapplication.MainActivity");
                         mContext.startActivity(intentAidl);
                         break;
+                    case 4:
+                        Intent  intentMvp = new Intent();
+                        intentMvp.setClass(mContext, MvpActivity.class);
+                        mContext.startActivity(intentMvp);
                     default:
                         break;
                 }

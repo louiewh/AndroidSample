@@ -16,7 +16,8 @@ public class ExampleBaseAdapter extends BaseAdapter {
             "Http",
             "Window",
             "Animation",
-            "Aidl"
+            "Aidl",
+            "MVP"
     };
 
     ExampleBaseAdapter(Context context){

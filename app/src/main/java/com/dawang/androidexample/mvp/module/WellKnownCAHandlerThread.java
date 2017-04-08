@@ -6,6 +6,7 @@ import android.os.Message;
 import android.util.Log;
 
 import com.dawang.androidexample.http.HttpsActivity;
+import com.dawang.androidexample.mvp.presenter.MvpPresenter;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -89,7 +90,7 @@ public class WellKnownCAHandlerThread extends HandlerThread {
                     if(urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK){
                         Log.e("https", "WellKnown Https Certificate Success!");
                         Message msg = Message.obtain();
-                        msg.what = HttpsActivity.HTTPS_SUCCES_WellKnown;
+                        msg.what = MvpPresenter.HTTPS_SUCCES_WellKnown;
                         mViewHandler.sendMessage(msg);
                     }
                 } catch (IOException e) {

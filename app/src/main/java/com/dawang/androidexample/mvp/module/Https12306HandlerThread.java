@@ -6,6 +6,7 @@ import android.os.Message;
 import android.util.Log;
 
 import com.dawang.androidexample.http.HttpsActivity;
+import com.dawang.androidexample.mvp.presenter.MvpPresenter;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
@@ -98,7 +99,7 @@ public class Https12306HandlerThread extends HandlerThread {
             if(conn.getResponseCode() == HttpURLConnection.HTTP_OK){
                 Log.e("https", "Https Certificate Success!");
                 Message msg = Message.obtain();
-                msg.what = HttpsActivity.HTTPS_SUCCES_12306;
+                msg.what = MvpPresenter.HTTPS_SUCCES_12306;
                 mViewHandler.sendMessage(msg);
             }
         } catch (MalformedURLException e) {

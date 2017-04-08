@@ -5,4 +5,8 @@ package com.dawang.androidexample.mvp.view;
  */
 
 public interface IMvpView {
+
+    void set12306View(String result);
+
+    void setWellKnown(String result);
 }

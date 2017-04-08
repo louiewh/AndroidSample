@@ -112,19 +112,19 @@ public class AnimationActivity extends AppCompatActivity {
                     @Override
                     public void onAnimationStart(Animation animation) {
                         Log.d("louie", "onAnimationStart");
-                        Log.d("louie", Log.getStackTraceString(new Throwable()));
+//                        Log.d("louie", Log.getStackTraceString(new Throwable()));
                     }
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
                         Log.d("louie", "onAnimationEnd");
-                        Log.d("louie", Log.getStackTraceString(new Throwable()));
+//                        Log.d("louie", Log.getStackTraceString(new Throwable()));
                     }
 
                     @Override
                     public void onAnimationRepeat(Animation animation) {
                         Log.d("louie", "onAnimationRepeat");
-                        Log.d("louie", Log.getStackTraceString(new Throwable()));
+//                        Log.d("louie", Log.getStackTraceString(new Throwable()));
                     }
                 });
 

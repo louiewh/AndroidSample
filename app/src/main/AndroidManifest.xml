@@ -26,6 +26,10 @@
         <activity android:name=".animation.AnimationActivity">
 
         </activity>
+
+        <activity android:name=".mvp.view.MvpActivity" >
+
+        </activity>
     </application>
 
 </manifest>
