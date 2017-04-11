@@ -4,11 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.dawang.androidexample.animation.AnimationActivity;
+import com.dawang.androidexample.designpattern.DesignPatternActivity;
 import com.dawang.androidexample.http.HttpsActivity;
 import com.dawang.androidexample.mvp.view.MvpActivity;
 import com.dawang.androidexample.window.WindowActivity;
@@ -64,10 +66,49 @@ public class MainActivity extends AppCompatActivity {
                         Intent  intentMvp = new Intent();
                         intentMvp.setClass(mContext, MvpActivity.class);
                         mContext.startActivity(intentMvp);
+                        Log.e("louie", replaceSpace(new StringBuffer("Hello World")));
+                        break;
+                    case 5:
+                        Intent  intentDp = new Intent();
+                        intentDp.setClass(mContext, DesignPatternActivity.class);
+                        mContext.startActivity(intentDp);
+                        Log.e("louie", replaceSpace(new StringBuffer("Hello World")));
+                        break;
                     default:
                         break;
                 }
             }
         });
     }
+
+        public String replaceSpace(StringBuffer str) {
+            int len = str.length();
+            int blank = 0;
+
+            Log.e("louie", " " + str.toString());
+            Log.e("louie", " " +  str.toString().toCharArray().toString());
+
+
+            char[] charArray = str.toString().toCharArray();
+            for(char c: charArray){
+                if(' ' == c ){
+                    blank ++;
+                }
+            }
+
+            StringBuffer reStr = new StringBuffer();
+            for(int i = 0;  i < len; i++) {
+                if(charArray[i] == ' '){
+                    reStr.append("%20");
+                } else {
+                    reStr.append(charArray[i]);
+                }
+
+                Log.e("louie", "for:" + charArray[i] + " StringBuffer:" + reStr.toString());
+            }
+
+            Log.e("louie", " " + str.toString());
+
+            return reStr.toString();
+        }
 }

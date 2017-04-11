@@ -30,6 +30,11 @@
         <activity android:name=".mvp.view.MvpActivity" >
 
         </activity>
+
+        <activity android:name=".designpattern.DesignPatternActivity" >
+
+        </activity>
+
     </application>
 
 </manifest>
