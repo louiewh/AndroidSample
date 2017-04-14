@@ -13,6 +13,7 @@ import com.dawang.androidexample.animation.AnimationActivity;
 import com.dawang.androidexample.designpattern.DesignPatternActivity;
 import com.dawang.androidexample.http.HttpsActivity;
 import com.dawang.androidexample.mvp.view.MvpActivity;
+import com.dawang.androidexample.view.ViewActivity;
 import com.dawang.androidexample.window.WindowActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -73,6 +74,11 @@ public class MainActivity extends AppCompatActivity {
                         intentDp.setClass(mContext, DesignPatternActivity.class);
                         mContext.startActivity(intentDp);
                         Log.e("louie", replaceSpace(new StringBuffer("Hello World")));
+                        break;
+                    case 6:
+                        Intent  intentView = new Intent();
+                        intentView.setClass(mContext, ViewActivity.class);
+                        mContext.startActivity(intentView);
                         break;
                     default:
                         break;
