@@ -4,6 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.dawang.androidexample.view.RainView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/background_dark" />
     <com.dawang.androidexample.view.MyView
         android:layout_height="match_parent"
         android:layout_width="match_parent"

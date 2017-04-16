@@ -3,4 +3,12 @@
     <declare-styleable name="MyView" >
         <attr name="dy_draw" format="boolean" />
     </declare-styleable>
+    
+    <declare-styleable name="RainView">
+        <attr name="drop_number" format="integer" />
+        <attr name="drop_size" format="integer" />
+        <attr name="drop_color" format="color" />
+        <attr name="drop_speed" format="integer" />
+        <attr name="drop_length" format="integer" />
+    </declare-styleable>
 </resources>

@@ -27,6 +27,7 @@ public class MyView extends View {
         super(context, attrs);
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.MyView);
         mDyDraw = array.getBoolean(R.styleable.MyView_dy_draw, false);
+        array.recycle();
     }
 
     public MyView(Context context) {

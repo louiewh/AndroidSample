@@ -3,7 +3,10 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         config {
-            keyAlias 'louie'
+            keyAlias 'androiddebugkey'
+            storeFile file('/Users/DaWang/.android/debug.keystore')
+            keyPassword 'android'
+            storePassword 'android'
         }
     }
     compileSdkVersion 25
