@@ -1,6 +1,7 @@
 package com.dawang.androidexample.view;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -11,15 +12,21 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.dawang.androidexample.R;
+
 /**
  * Created by DaWang on 2017/4/13.
  */
 
 public class MyView extends View {
     private Paint mPaint = new Paint();
+    private int mDyCircle = 0;
+    private boolean mDyDraw = false;
 
     public MyView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.MyView);
+        mDyDraw = array.getBoolean(R.styleable.MyView_dy_draw, false);
     }
 
     public MyView(Context context) {
@@ -31,14 +38,18 @@ public class MyView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        drawText(canvas);
-        drawLine(canvas);
-        drawRoundRect(canvas);
-        drawCircleStroke(canvas);
-        drawCircleFill(canvas);
-        drawPath(canvas);
-        drawOval(canvas);
-        drawArc(canvas);
+        if(mDyDraw) {
+            drawDynamicCircle(canvas);
+        } else {
+            drawText(canvas);
+            drawLine(canvas);
+            drawRoundRect(canvas);
+            drawCircleStroke(canvas);
+            drawCircleFill(canvas);
+            drawPath(canvas);
+            drawOval(canvas);
+            drawArc(canvas);
+        }
     }
 
     void drawText(Canvas canvas){
@@ -108,5 +119,45 @@ public class MyView extends View {
         mPaint.setColor(Color.RED);
 
         canvas.drawArc(new RectF(rect), 0, 90, false, mPaint);
+    }
+
+    void drawDynamicCircle(Canvas canvas){
+        mPaint.setAntiAlias(true);
+        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStrokeWidth(10);
+        int width = getWidth();
+        int height = getHeight();
+        int min = width < height ? width:height;
+        Rect rect = new Rect(width/2 - min/2, (height-min)/2, width/2+min/2, (height+min)/2);
+
+        if(mDyCircle % 4 == 0) {
+            mPaint.setColor(Color.RED);
+            canvas.drawArc(new RectF(rect), 0, 90, false, mPaint);
+        } else if(mDyCircle % 4 == 1) {
+
+            mPaint.setColor(Color.BLUE);
+            canvas.drawArc(new RectF(rect), 90, 90, false, mPaint);
+        } else if(mDyCircle % 4 == 2) {
+            mPaint.setColor(Color.DKGRAY);
+            canvas.drawArc(new RectF(rect), 180, 90, false, mPaint);
+        } else if(mDyCircle % 4 == 3) {
+            mPaint.setColor(Color.YELLOW);
+            canvas.drawArc(new RectF(rect), 270, 90, false, mPaint);
+        }
+
+        mDyCircle ++;
+        postInvalidateDelayed(1000);
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+
+        mDyDraw = false;
     }
 }
