@@ -2,8 +2,10 @@ package com.dawang.androidexample;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.ArraySet;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,6 +18,10 @@ import com.dawang.androidexample.mvp.view.MvpActivity;
 import com.dawang.androidexample.view.ViewActivity;
 import com.dawang.androidexample.window.WindowActivity;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.SortedSet;
+
 public class MainActivity extends AppCompatActivity {
     Context mContext;
     ListView mListView;
@@ -26,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         initData();
         initViews();
         loadViews();
+
+        initSharePrefences();
     }
 
     void initData(){
@@ -87,6 +95,19 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    void initSharePrefences() {
+        SharedPreferences preferences = this.getSharedPreferences("preference_sample", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("boolen", false);
+        editor.putInt("int", 888);
+        editor.putFloat("float", 1.0f);
+        editor.putString("String", "Hello World");
+        HashSet<String> set = new HashSet<>();
+        set.add("Hello");
+        set.add("World");
+        editor.putStringSet("Set", set);
+        editor.commit();
+    }
         public String replaceSpace(StringBuffer str) {
             int len = str.length();
             int blank = 0;

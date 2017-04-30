@@ -11,4 +11,9 @@
         <attr name="drop_speed" format="integer" />
         <attr name="drop_length" format="integer" />
     </declare-styleable>
+
+    <declare-styleable name="FlowLayout">
+        <attr name="dividerH" format="integer" />
+        <attr name="dividerW" format="integer" />
+    </declare-styleable>
 </resources>
