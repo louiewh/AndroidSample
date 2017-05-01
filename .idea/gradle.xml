@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/Bluetooth" />
             <option value="$PROJECT_DIR$/aidl" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/swipemenuview" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
