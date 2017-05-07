@@ -16,4 +16,8 @@
         <attr name="dividerH" format="integer" />
         <attr name="dividerW" format="integer" />
     </declare-styleable>
+
+    <declare-styleable name="ClockView">
+        <attr name="hour_text_size" format="integer" />
+    </declare-styleable>
 </resources>

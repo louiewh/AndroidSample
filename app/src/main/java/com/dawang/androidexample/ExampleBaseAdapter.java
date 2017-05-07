@@ -19,7 +19,8 @@ public class ExampleBaseAdapter extends BaseAdapter {
             "Aidl",
             "MVP",
             "Design pattern",
-            "View"
+            "View",
+            "Widget"
     };
 
     ExampleBaseAdapter(Context context){

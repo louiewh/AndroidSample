@@ -16,6 +16,7 @@ import com.dawang.androidexample.designpattern.DesignPatternActivity;
 import com.dawang.androidexample.http.HttpsActivity;
 import com.dawang.androidexample.mvp.view.MvpActivity;
 import com.dawang.androidexample.view.ViewActivity;
+import com.dawang.androidexample.widget.WidgetActivity;
 import com.dawang.androidexample.window.WindowActivity;
 
 import java.util.HashMap;
@@ -88,6 +89,10 @@ public class MainActivity extends AppCompatActivity {
                         intentView.setClass(mContext, ViewActivity.class);
                         mContext.startActivity(intentView);
                         break;
+                    case 7:
+                        Intent  intentWidget = new Intent();
+                        intentWidget.setClass(mContext, WidgetActivity.class);
+                        mContext.startActivity(intentWidget);
                     default:
                         break;
                 }
