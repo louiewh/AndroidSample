@@ -34,6 +34,7 @@ public class ViewActivity extends FragmentActivity {
         mFragment.add(new RainViewFragment());
         mFragment.add(new VvvFragment());
         mFragment.add(new FlowLayoutFragment());
+        mFragment.add(new ClockFragment());
 
         mFragmentManager = getSupportFragmentManager();
         mPager.setAdapter(new FragmentPagerAdapter(mFragmentManager) {

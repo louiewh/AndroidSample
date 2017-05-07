@@ -6,6 +6,6 @@
 
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    myview:dy_draw="true">
+    myview:dy_draw="false">
 
 </com.dawang.androidexample.view.MyView>

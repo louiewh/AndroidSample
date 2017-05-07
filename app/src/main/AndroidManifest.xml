@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dawang.androidexample">
 
-    <uses-permission android:name="android.permission.INTERNET"> </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -10,34 +10,23 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.dawang.androidexample.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".http.HttpsActivity">
-
-        </activity>
-        <activity android:name=".window.WindowActivity">
-
-        </activity>
-        <activity android:name=".animation.AnimationActivity">
-
-        </activity>
-
-        <activity android:name=".mvp.view.MvpActivity" >
-
-        </activity>
-
-        <activity android:name=".designpattern.DesignPatternActivity" >
-
-        </activity>
-
-        <activity android:name=".view.ViewActivity" >
-
-        </activity>
+        <activity android:name=".http.HttpsActivity"></activity>
+        <activity android:name=".window.WindowActivity"></activity>
+        <activity android:name=".animation.AnimationActivity"></activity>
+        <activity android:name=".mvp.view.MvpActivity"></activity>
+        <activity android:name=".designpattern.DesignPatternActivity"></activity>
+        <activity android:name=".view.ViewActivity"></activity>
+        <activity
+            android:name=".widget.WidgetActivity"
+            android:label="@string/title_activity_widget"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
