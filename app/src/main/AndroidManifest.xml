@@ -27,6 +27,10 @@
             android:name=".widget.WidgetActivity"
             android:label="@string/title_activity_widget"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".rxjava.RxActivity"
+            android:label="@string/title_activity_rx"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

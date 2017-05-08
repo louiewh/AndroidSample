@@ -20,7 +20,8 @@ public class ExampleBaseAdapter extends BaseAdapter {
             "MVP",
             "Design pattern",
             "View",
-            "Widget"
+            "Widget",
+            "RxJava"
     };
 
     ExampleBaseAdapter(Context context){

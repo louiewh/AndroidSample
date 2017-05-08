@@ -15,6 +15,7 @@ import com.dawang.androidexample.animation.AnimationActivity;
 import com.dawang.androidexample.designpattern.DesignPatternActivity;
 import com.dawang.androidexample.http.HttpsActivity;
 import com.dawang.androidexample.mvp.view.MvpActivity;
+import com.dawang.androidexample.rxjava.RxActivity;
 import com.dawang.androidexample.view.ViewActivity;
 import com.dawang.androidexample.widget.WidgetActivity;
 import com.dawang.androidexample.window.WindowActivity;
@@ -93,6 +94,12 @@ public class MainActivity extends AppCompatActivity {
                         Intent  intentWidget = new Intent();
                         intentWidget.setClass(mContext, WidgetActivity.class);
                         mContext.startActivity(intentWidget);
+                        break;
+                    case 8:
+                        Intent  intentRxJava = new Intent();
+                        intentRxJava.setClass(mContext, RxActivity.class);
+                        mContext.startActivity(intentRxJava);
+                        break;
                     default:
                         break;
                 }
