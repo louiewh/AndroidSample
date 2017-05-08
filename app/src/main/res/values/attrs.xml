@@ -3,7 +3,7 @@
     <declare-styleable name="MyView" >
         <attr name="dy_draw" format="boolean" />
     </declare-styleable>
-    
+
     <declare-styleable name="RainView">
         <attr name="drop_number" format="integer" />
         <attr name="drop_size" format="integer" />
