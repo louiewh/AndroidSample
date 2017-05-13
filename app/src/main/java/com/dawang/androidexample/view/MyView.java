@@ -19,6 +19,8 @@ import com.dawang.androidexample.R;
  */
 
 public class MyView extends View {
+    private int mWidth;
+    private int mHeigth;
     private Paint mPaint = new Paint();
     private int mDyCircle = 0;
     private boolean mDyDraw = false;
@@ -38,6 +40,8 @@ public class MyView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        mWidth = getWidth();
+        mHeigth = getHeight();
 
         if(mDyDraw) {
             drawDynamicCircle(canvas);
@@ -54,20 +58,20 @@ public class MyView extends View {
     }
 
     void drawText(Canvas canvas){
-        mPaint.setTextSize(30);
+        mPaint.setTextSize(50);
         mPaint.setShadowLayer(10, 55, 22, Color.GREEN);
-        canvas.drawText("View Hello World", 0, 30, mPaint);
+        canvas.drawText("View Hello World", 80, 80, mPaint);
     }
 
     void drawLine(Canvas canvas){
-        mPaint.setColor(0xffffff00);
+        mPaint.setColor(Color.BLACK);
         mPaint.setStrokeWidth(10);
-        canvas.drawLine(0, 60, 200, 60, mPaint);
+        canvas.drawLine(20, 120, mWidth, 120, mPaint);
     }
 
     void drawRoundRect(Canvas canvas){
         mPaint.setARGB(255, 255, 0, 255);
-        Rect rect = new Rect(10, 60, 100, 100);
+        Rect rect = new Rect(10, 150, 200, 250);
         mPaint.setShadowLayer(30, 5, 2, Color.DKGRAY);
         canvas.drawRoundRect(new RectF(rect), 10, 10, mPaint);
     }
@@ -79,8 +83,7 @@ public class MyView extends View {
         mPaint.setStrokeWidth(5);
         mPaint.setShadowLayer(5, 15, 15, Color.LTGRAY);
 
-//        canvas.drawRGB(255, 255,255);
-        canvas.drawCircle(150, 200, 100, mPaint);
+        canvas.drawCircle(300, 300, 100, mPaint);
     }
 
     void drawCircleFill(Canvas canvas){
@@ -89,7 +92,7 @@ public class MyView extends View {
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setStrokeWidth(5);
 
-        canvas.drawCircle(380, 200, 100, mPaint);
+        canvas.drawCircle(550, 300, 100, mPaint);
     }
 
     void drawPath(Canvas canvas){
@@ -99,15 +102,15 @@ public class MyView extends View {
         mPaint.setStyle(Paint.Style.STROKE);
 
         Path path = new Path();
-        path.moveTo(0, 500);
-        path.lineTo(450, 200);
-        path.quadTo(0, 500, 40, 570);
+        path.moveTo(20, 500);
+        path.lineTo(450, 550);
+        path.quadTo(300, 600, 40, 570);
 
         canvas.drawPath(path, mPaint);
     }
 
     void  drawOval(Canvas canvas){
-        Rect rect = new Rect(100, 500, 400, 600);
+        Rect rect = new Rect(600, 600, 900, 800);
 
         canvas.drawRect(rect, mPaint);
         mPaint.setColor(Color.BLUE);
@@ -115,8 +118,7 @@ public class MyView extends View {
 
     }
     void drawArc(Canvas canvas){
-//        Rect rect = new Rect(400, 500, 600, 600);
-        Rect rect = new Rect(100, 500, 400, 600);
+        Rect rect = new Rect(600, 600, 900, 800);
         mPaint.setColor(Color.RED);
 
         canvas.drawArc(new RectF(rect), 0, 90, false, mPaint);
@@ -129,6 +131,7 @@ public class MyView extends View {
         int width = getWidth();
         int height = getHeight();
         int min = width < height ? width:height;
+        min = min - 10;
         Rect rect = new Rect(width/2 - min/2, (height-min)/2, width/2+min/2, (height+min)/2);
 
         if(mDyCircle % 4 == 0) {
@@ -160,5 +163,15 @@ public class MyView extends View {
         super.onDetachedFromWindow();
 
         mDyDraw = false;
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+    }
+
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
     }
 }
