@@ -33,6 +33,7 @@ public class FlowLayout extends ViewGroup {
         TypedArray array  = context.obtainStyledAttributes(attrs, R.styleable.FlowLayout);
         mDividerW = array.getInteger(R.styleable.FlowLayout_dividerW, mDefaultDividerW);
         mDividerH = array.getInteger(R.styleable.FlowLayout_dividerH, mDefaultDividerH);
+        array.recycle();
     }
 
     public FlowLayout(Context context, AttributeSet attrs, int defStyleAttr) {
