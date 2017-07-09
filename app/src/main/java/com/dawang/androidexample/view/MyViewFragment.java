@@ -52,6 +52,8 @@ public class MyViewFragment extends Fragment {
                 new PaintCanvasView.JoinPaintCanvasView(getContext()),
                 new PaintCanvasView.AlignPaintCanvasView(getContext()),
                 new PaintCanvasView.ColorMatrixColorFilterView(getContext()),
+                new PaintCanvasView.LightingColorFilterView(getContext()),
+                new PaintCanvasView.PorterDuffColorFilterView(getContext()),
                 new PaintCanvasView.BlurMaskFilterView(getContext()),
                 new PaintCanvasView.EmbossMaskFilterView(getContext()),
                 new PaintCanvasView.CirclePaintCanvasView(getContext())

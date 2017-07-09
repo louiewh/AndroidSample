@@ -9,9 +9,14 @@ import android.graphics.Color;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.EmbossMaskFilter;
+import android.graphics.LightingColorFilter;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import android.graphics.Rect;
 import android.graphics.RectF;
+import android.graphics.Typeface;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -88,8 +93,16 @@ public abstract class PaintCanvasView extends View {
 
         @Override
         protected void onChildDraw(Canvas canvas) {
-            mPaint.setTextSize(mWidth/10);
+            mPaint.setTextSize(mWidth/20);
             mPaint.setColor(Color.BLUE);
+            mPaint.setTypeface(Typeface.SERIF);
+            canvas.drawText("View Hello World", mWidth/10, mHeigth*1/4, mPaint);
+
+            mPaint.setTextScaleX(2);
+            canvas.drawText("View Hello World", mWidth/10, mHeigth*2/4, mPaint);
+
+            mPaint.setTextScaleX(1);
+            mPaint.setTextSkewX(-1);
             canvas.drawText("View Hello World", mWidth/10, mHeigth*3/4, mPaint);
         }
     }
@@ -117,7 +130,7 @@ public abstract class PaintCanvasView extends View {
         @Override
         protected void onChildDraw(Canvas canvas) {
             mPaint.setColor(Color.BLUE);
-            mPaint.setStrokeWidth(10);
+            mPaint.setStrokeWidth(mWidth/10);
             canvas.drawLine(mWidth/10, mHeigth/2, mWidth - mWidth/10, mHeigth/2, mPaint);
         }
     }
@@ -238,6 +251,53 @@ public abstract class PaintCanvasView extends View {
         }
     }
 
+    static public class LightingColorFilterView extends PaintCanvasView{
+        Context mContext;
+        public LightingColorFilterView(Context context) {
+            super(context);
+            mContext = context;
+            setLayerType(LAYER_TYPE_SOFTWARE, null);
+        }
+
+        @Override
+        protected void onChildDraw(Canvas canvas) {
+            Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.colorfilter);
+            Rect srcRect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            int min = Math.min(mWidth, mHeigth)/3;
+
+            canvas.drawBitmap(bitmap, srcRect, new Rect(mWidth/2 - min, mHeigth/2 - min, mWidth/2 + min, mHeigth/2 + min), mPaint);
+            mPaint.setColorFilter(new LightingColorFilter(0xFF00FFFF, 0x00FF0000));
+            canvas.drawBitmap(bitmap, srcRect, new Rect(mWidth/6 - min, mHeigth/2 - min, mWidth/6 + min, mHeigth/2 + min), mPaint);
+            mPaint.setColorFilter(new LightingColorFilter(0xFF00FFFF, 0x00000000));
+            canvas.drawBitmap(bitmap, srcRect, new Rect(mWidth*5/6 - min, mHeigth/2 - min, mWidth*5/6 + min, mHeigth/2 + min), mPaint);
+        }
+    }
+
+    static public class PorterDuffColorFilterView extends PaintCanvasView{
+        Context mContext;
+
+        public PorterDuffColorFilterView(Context context) {
+            super(context);
+            mContext = context;
+            setLayerType(LAYER_TYPE_SOFTWARE, null);
+        }
+
+        @Override
+        protected void onChildDraw(Canvas canvas) {
+            Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.androidicon);
+            Rect srcRect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            int min = Math.min(mWidth, mHeigth)/3;
+
+            canvas.drawBitmap(bitmap, srcRect, new Rect(mWidth/2 - min, mHeigth/2 - min, mWidth/2 + min, mHeigth/2 + min), mPaint);
+
+            mPaint.setColorFilter(new PorterDuffColorFilter(Color.DKGRAY, PorterDuff.Mode.DST));
+            canvas.drawBitmap(bitmap, srcRect, new Rect(mWidth/6 - min, mHeigth/2 - min, mWidth/6 + min, mHeigth/2 + min), mPaint);
+
+            mPaint.setColorFilter(new PorterDuffColorFilter( Color.argb(255, 255, 128, 103), PorterDuff.Mode.SRC));
+            canvas.drawBitmap(bitmap, srcRect, new Rect(mWidth*5/6 - min, mHeigth/2 - min, mWidth*5/6 + min, mHeigth/2 + min), mPaint);
+        }
+    }
+
     static public class BlurMaskFilterView extends PaintCanvasView{
         // http://www.cnblogs.com/tianzhijiexian/p/4297734.html
         // http://blog.csdn.net/aigestudio/article/details/41447349
@@ -280,21 +340,18 @@ public abstract class PaintCanvasView extends View {
         protected void onChildDraw(Canvas canvas) {
 
             int strokeWidth = 20;
-            int min = Math.min(mWidth, mHeigth);
             int radius = mWidth/8;
             mPaint.setStrokeWidth(strokeWidth);
             mPaint.setColor(Color.RED);
-//            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.girl_bule);
+
             mPaint.setMaskFilter(new EmbossMaskFilter(new float[] { 1, 1, 1F }, 0.1F, 8, 3));
-            canvas.drawCircle(mWidth/4/2,   mHeigth/2, radius - strokeWidth, mPaint);
+            canvas.drawCircle(mWidth/3/2,   mHeigth/2, radius - strokeWidth, mPaint);
+
             mPaint.setMaskFilter(new EmbossMaskFilter(new float[] { 1, 1, -1F }, 0.1F, 8, 3));
-            canvas.drawCircle(mWidth*3/4/2, mHeigth/2, radius - strokeWidth, mPaint);
+            canvas.drawCircle(mWidth*3/3/2, mHeigth/2, radius - strokeWidth, mPaint);
 
             mPaint.setMaskFilter(new EmbossMaskFilter(new float[] { 0, 0, 1F }, 0.1F, 8, 3));
-            canvas.drawCircle(mWidth*5/4/2, mHeigth/2, radius - strokeWidth, mPaint);
-
-            mPaint.setMaskFilter(new BlurMaskFilter(strokeWidth, BlurMaskFilter.Blur.INNER));
-            canvas.drawCircle(mWidth*7/8, mHeigth/2, radius - strokeWidth, mPaint);
+            canvas.drawCircle(mWidth*5/3/2, mHeigth/2, radius - strokeWidth, mPaint);
         }
     }
 
