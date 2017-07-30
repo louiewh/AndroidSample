@@ -18,14 +18,15 @@ import android.widget.FrameLayout;
 import com.dawang.androidexample.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by DaWang on 2017/4/30.
  */
 
-public class MyViewFragment extends Fragment {
+abstract public class RecyclerViewFragment extends Fragment {
     RecyclerView mRecyclerView;
-    MyViewAdapter mAdapter;
+    ViewAdapter mAdapter;
 
     @Nullable
     @Override
@@ -34,32 +35,23 @@ public class MyViewFragment extends Fragment {
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mRecyclerView.setAdapter(mAdapter = new MyViewAdapter());
+        mRecyclerView.setAdapter(mAdapter = new ViewAdapter());
         mRecyclerView.addItemDecoration(new MyRecycleViewDivider());
+        if(getViewList() != null){
+            mAdapter.mList = getViewList();
+        }
 
         return view;
     }
 
-    class MyViewAdapter extends RecyclerView.Adapter<MyViewViewHolder>{
+
+    abstract public ArrayList<View> getViewList();
+
+    class ViewAdapter extends RecyclerView.Adapter<ViewViewHolder>{
         ArrayList<View> mList = new ArrayList<>();
         FrameLayout.LayoutParams mFrameLayoutLp;
 
-        View[] mView = new View[]{
-                new PaintCanvasView.TextPaintCanvasView(getContext()),
-                new PaintCanvasView.ShadowLayerPaintView(getContext()),
-                new PaintCanvasView.LinePaintCanvasView(getContext()),
-                new PaintCanvasView.CapPaintCanvasView(getContext()),
-                new PaintCanvasView.JoinPaintCanvasView(getContext()),
-                new PaintCanvasView.AlignPaintCanvasView(getContext()),
-                new PaintCanvasView.ColorMatrixColorFilterView(getContext()),
-                new PaintCanvasView.LightingColorFilterView(getContext()),
-                new PaintCanvasView.PorterDuffColorFilterView(getContext()),
-                new PaintCanvasView.BlurMaskFilterView(getContext()),
-                new PaintCanvasView.EmbossMaskFilterView(getContext()),
-                new PaintCanvasView.CirclePaintCanvasView(getContext())
-        };
-
-        public MyViewAdapter(){
+        public ViewAdapter(){
             mFrameLayoutLp = new FrameLayout.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.MATCH_PARENT);
@@ -67,16 +59,16 @@ public class MyViewFragment extends Fragment {
         }
 
         @Override
-        public MyViewViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public ViewViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             ViewGroup view = (ViewGroup) LayoutInflater.from(getContext())
                     .inflate(R.layout.recyclerview_view_item, parent, false);
 
             addChildView(view, viewType);
-            return new MyViewViewHolder(view);
+            return new ViewViewHolder(view);
         }
 
         @Override
-        public void onBindViewHolder(MyViewViewHolder holder, int position) {
+        public void onBindViewHolder(ViewViewHolder holder, int position) {
 
         }
 
@@ -87,11 +79,11 @@ public class MyViewFragment extends Fragment {
 
         @Override
         public int getItemCount() {
-            return mView.length;
+            return mList.size();
         }
 
         private void addChildView(ViewGroup viewGroup, int viewType){
-            View view = mView[viewType];
+            View view = mList.get(viewType);
 
             if (view != null) {
                 viewGroup.addView(view, mFrameLayoutLp);
@@ -99,8 +91,8 @@ public class MyViewFragment extends Fragment {
         }
     }
 
-    class MyViewViewHolder  extends RecyclerView.ViewHolder{
-        public MyViewViewHolder(View itemView) {
+    class ViewViewHolder extends RecyclerView.ViewHolder{
+        public ViewViewHolder(View itemView) {
             super(itemView);
         }
     }

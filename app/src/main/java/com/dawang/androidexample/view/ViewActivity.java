@@ -30,7 +30,8 @@ public class ViewActivity extends FragmentActivity {
         setContentView(R.layout.view_activity_layout);
 
         mPager = (ViewPager) findViewById(R.id.pager);
-        mFragment.add(new MyViewFragment());
+        mFragment.add(new GradientFragment());
+        mFragment.add(new PaintCanvasViewFragment());
         mFragment.add(new RainViewFragment());
         mFragment.add(new VvvFragment());
         mFragment.add(new FlowLayoutFragment());
