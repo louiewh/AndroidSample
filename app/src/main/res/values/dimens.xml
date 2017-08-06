@@ -5,4 +5,5 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="hour_text_size">30dp</dimen>
     <dimen name="ItemDecoration_size">8dp</dimen>
+    <dimen name="pain_canvas_height">200dp</dimen>
 </resources>
