@@ -1,1 +1,1 @@
-include ':app', ':aidl', ':Bluetooth', ':swipemenuview'
+include ':app', ':aidl'
