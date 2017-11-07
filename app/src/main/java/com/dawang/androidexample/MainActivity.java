@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void initData(){
-        mContext = this.getApplicationContext();
+        mContext = this;
     }
 
     void initViews(){
