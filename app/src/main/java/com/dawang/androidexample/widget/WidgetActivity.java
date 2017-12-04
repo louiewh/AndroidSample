@@ -27,7 +27,8 @@ public class WidgetActivity extends AppCompatActivity {
     Toolbar toolbar;
 
     private static final String[] mMenuArray = {
-            "RecyclerView"
+            "RecyclerView",
+            "WebView"
     };
 
     @Override
@@ -120,6 +121,10 @@ public class WidgetActivity extends AppCompatActivity {
                         case 0:
                             Intent intent = new Intent(getApplicationContext(), RecyclerViewActivity.class);
                             WidgetActivity.this.startActivity(intent);
+                            break;
+                        case 1:
+                            Intent intent1 = new Intent(getApplicationContext(), WebViewActivity.class);
+                            WidgetActivity.this.startActivity(intent1);
                             break;
                         default:
                             break;

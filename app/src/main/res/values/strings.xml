@@ -3,4 +3,5 @@
     <string name="title_activity_widget">WidgetActivity</string>
     <string name="title_activity_rx">RxActivity</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_web_view">WebViewActivity</string>
 </resources>

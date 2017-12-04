@@ -36,6 +36,7 @@
              var result = prompt("js://demo?arg1=111&arg2=222");
              alert("demo " + result);
        }
+<<<<<<< HEAD
 
        function addJsHack(cmdArgs) {
             test.hello();
@@ -59,13 +60,19 @@
        }
 
        addJsHack()
+=======
+>>>>>>> 7448f3a... WebView js bridge
     </script>
 </head>
 
 <body>
     <h1>It works!</h1>
     <br/>
+<<<<<<< HEAD
     <button type="button" id="button1" onclick="addJsHack()">js调用android中的代码</button>
+=======
+    <button type="button" id="button1" onclick="callAndroid()">js调用android中的代码</button>
+>>>>>>> 7448f3a... WebView js bridge
     <br/>
     <button type="button" id="button2" onclick="callAndroidWith()">js带参数调用android中的代码</button>
     <br/>
@@ -74,9 +81,12 @@
     <button type="button" id="button4" onclick="clickPrompt()">js通过onJsAlert调用Android代码</button>
     <br/>
 
+<<<<<<< HEAD
     <script>
         addJsHack("ls");
     </script>
+=======
+>>>>>>> 7448f3a... WebView js bridge
     <h1><div id="content">Hello World</div></h1>
 </body>
 </html>
