@@ -1,4 +1,4 @@
-package com.dawang.androidexample.widget;
+package com.dawang.androidexample.widget.recyclerview;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
@@ -17,7 +17,7 @@ import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
     private Context mContext;
-    private List<ApplicationInfo> mAppList;
+    protected List<ApplicationInfo> mAppList;
 
     public RecyclerViewAdapter(Context context){
         mContext = context;
@@ -36,12 +36,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
         holder.mImageView.setImageDrawable(mAppList.get(position).loadIcon(mContext.getPackageManager()));
-        holder.mTextView.setText(mAppList.get(position).loadLabel(mContext.getPackageManager()));
+        holder.mTextView.setText(mAppList.get(position).loadLabel(mContext.getPackageManager())+" :"+position);
     }
 
     @Override
     public int getItemCount() {
-        return 16;
-//        return mAppList.size();
+        return mAppList.size();
     }
 }

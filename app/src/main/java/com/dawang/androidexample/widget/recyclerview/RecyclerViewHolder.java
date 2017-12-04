@@ -1,4 +1,4 @@
-package com.dawang.androidexample.widget;
+package com.dawang.androidexample.widget.recyclerview;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

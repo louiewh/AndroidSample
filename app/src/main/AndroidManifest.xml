@@ -29,7 +29,7 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".widget.RecyclerViewActivity"
+            android:name=".widget.recyclerview.RecyclerViewActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity

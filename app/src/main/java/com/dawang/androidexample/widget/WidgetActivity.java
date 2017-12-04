@@ -18,6 +18,7 @@ import android.view.Window;
 import android.widget.TextView;
 
 import com.dawang.androidexample.R;
+import com.dawang.androidexample.widget.recyclerview.RecyclerViewActivity;
 
 public class WidgetActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;

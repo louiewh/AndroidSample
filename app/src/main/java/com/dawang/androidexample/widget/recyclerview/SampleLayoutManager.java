@@ -1,4 +1,4 @@
-package com.dawang.androidexample.widget.layoutmanager;
+package com.dawang.androidexample.widget.recyclerview;
 
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
@@ -19,7 +19,6 @@ public class SampleLayoutManager extends RecyclerView.LayoutManager {
 
     private int mTotalHeight;
     private int mVerticalScrollOffset;
-    private boolean mLoop = false;
     private SparseArray<Rect> mSparseArray = new SparseArray<>();
     private SparseBooleanArray mAttachedItems = new SparseBooleanArray();
 
@@ -76,14 +75,11 @@ public class SampleLayoutManager extends RecyclerView.LayoutManager {
             return;
         }
 
-        final View topView = getChildAt(0);
-        final View bottomView = getChildAt(getChildCount()-1);
-
         Rect displayFrame = new Rect(0, mVerticalScrollOffset, getWidth(), mVerticalScrollOffset+getHeight());
         Log.e("fill", "displayFrame:"+displayFrame.toString());
         Log.e("fill", "getChildCount:"+getChildCount());
 
-        Rect childFrame = new Rect();
+        Rect childFrame;
         for (int i = 0; i < getChildCount(); i++) {
             View child = getChildAt(i);
             childFrame = mSparseArray.get(i);
