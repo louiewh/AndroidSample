@@ -47,7 +47,7 @@ public class RetrofitDemo {
         return  service;
     }
 
-    GithubUser getGithubUserSync(String name){
+    public GithubUser getGithubUserSync(String name){
         GitHubService service = getGitHubService();
         GithubUser user = null;
         Call<GithubUser> call = service.getFeed(name);
@@ -62,7 +62,7 @@ public class RetrofitDemo {
         return user;
     }
 
-    void getGithubUserAsync(String name){
+    public void getGithubUserAsync(String name){
         GitHubService service = getGitHubService();
         Call<GithubUser> call = service.getFeed(name);
 
@@ -82,7 +82,7 @@ public class RetrofitDemo {
         });
     }
 
-    List<GithubRepo> getRepoList(String name){
+    public List<GithubRepo> getRepoList(String name){
         GitHubService service = getGitHubService();
         Call<List<GithubRepo>>  call = service.listRepos(name);
         List<GithubRepo> listRepo = null;

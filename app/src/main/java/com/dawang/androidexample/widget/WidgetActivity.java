@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.dawang.androidexample.R;
 import com.dawang.androidexample.widget.recyclerview.RecyclerViewActivity;
+import com.dawang.androidexample.widget.webview.WebViewActivity;
 
 public class WidgetActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
@@ -129,12 +130,12 @@ public class WidgetActivity extends AppCompatActivity {
 
         public void bindView(String menu){
             mMenu.setText(menu);
-            mMenu.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.e("onCreateViewHolder", "bindView:"+getLayoutPosition());
-                }
-            });
+//            mMenu.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Log.e("onCreateViewHolder", "bindView:"+getLayoutPosition());
+//                }
+//            });
         }
     }
 }
