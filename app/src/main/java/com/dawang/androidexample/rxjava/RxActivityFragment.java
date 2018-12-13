@@ -65,9 +65,15 @@ public class RxActivityFragment extends Fragment {
             @Override
             public void subscribe(@NonNull ObservableEmitter<String> e) throws Exception {
 
+                e.onNext("hello");
+            }
+        }).subscribe(new Consumer<String>() {
+            @Override
+            public void accept(String s) throws Exception {
+
             }
         });
-        
+
         Observable.just("one", "two", "three", "four", "five")
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())

@@ -58,14 +58,16 @@ public class SerializableTest {
         private static final long serialVersionUID = 123456789L;
         public int id;
         public String name;
+        public byte[] mByte;
 
         public Person(int id, String name) {
             this.id = id;
             this.name = name;
+            mByte = name.getBytes();
         }
 
         public String toString() {
-            return "Person: " + id + " " + name;
+            return "Person: " + id + " " + name + " " + new String(mByte);
         }
 
         @Override
