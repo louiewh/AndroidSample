@@ -1,4 +1,4 @@
-package com.dawang.androidsample;
+package com.dawang.androidsample.java;
 
 import android.os.SystemClock;
 

@@ -1,9 +1,8 @@
-package com.dawang.androidsample.leetcode;
+package com.dawang.androidsample.algorithm.leetcode;
 
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class A46_Permutations {
