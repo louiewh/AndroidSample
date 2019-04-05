@@ -1,6 +1,8 @@
 package com.dawang.androidsample.algorithm;
 
 
+import com.dawang.androidsample.algorithm.base.TreeNode;
+
 import org.junit.Test;
 
 
@@ -48,16 +50,5 @@ public class Bst2List {
         while (root.mLeft != null) root = root.mLeft;
 
         return  root;
-
-    }
-
-    static class TreeNode{
-        int mValue;
-        TreeNode mLeft;
-        TreeNode mRight;
-
-        public TreeNode(int value){
-            mValue = value;
-        }
     }
 }
