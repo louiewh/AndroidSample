@@ -2,6 +2,8 @@ package com.dawang.androidsample.algorithm;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+
 public class MergeSortTest {
 
 
@@ -9,6 +11,8 @@ public class MergeSortTest {
     public void mergeMain(){
         int[] array = {9,8,7,6,5,4,3,2,1};
         mergeSort(array, 0, array.length-1);
+
+        System.err.println(Arrays.toString(array));
     }
 
     public void mergeSort(int[] array, int start, int end){

@@ -7,11 +7,11 @@ public class Sort {
 
     @Test
     public void test(){
-        int[] a = {2, 5, 2, 6, 10, 15};
+        int[] a = {9,8,7,6,5,4,3,2,1};
         quickSort(a, 0, a.length-1);
         System.err.println(Arrays.toString(a));
 
-        int[] a2 = {2, 5, 2, 6, 10, 15};
+        int[] a2 = {9,8,7,6,5,4,3,2,1};
         mergeSort(a2, 0, a2.length-1);
         System.err.println(Arrays.toString(a2));
     }
