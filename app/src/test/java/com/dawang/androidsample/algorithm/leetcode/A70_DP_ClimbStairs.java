@@ -2,7 +2,7 @@ package com.dawang.androidsample.algorithm.leetcode;
 
 import org.junit.Test;
 
-public class A80_DP_ClimbStairs {
+public class A70_DP_ClimbStairs {
 
     @Test
     public void test() {
