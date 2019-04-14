@@ -12,14 +12,14 @@ public class Bst2List {
     public void test(){
         TreeNode root = new TreeNode(10);
 
-        root.mLeft = new TreeNode(6);
-        root.mRight = new TreeNode(15);
+        root.left = new TreeNode(6);
+        root.right = new TreeNode(15);
 
-        root.mLeft.mLeft = new TreeNode(5);
-        root.mLeft.mRight = new TreeNode(7);
+        root.left.left = new TreeNode(5);
+        root.left.right = new TreeNode(7);
 
-        root.mRight.mLeft = new TreeNode(11);
-        root.mRight.mRight = new TreeNode(16);
+        root.right.left = new TreeNode(11);
+        root.right.right = new TreeNode(16);
 
         TreeNode result = transfer(root);
 
@@ -30,24 +30,24 @@ public class Bst2List {
     TreeNode transfer(TreeNode root){
         if(root == null) return null;
 
-        if(root.mLeft != null){
+        if(root.left != null){
 
-            TreeNode left = transfer(root.mLeft);
-            while (left.mRight != null) left = left.mRight;
+            TreeNode left = transfer(root.left);
+            while (left.right != null) left = left.right;
 
-            left.mRight = root;
-            root.mLeft = left;
+            left.right = root;
+            root.left = left;
 
         }
 
-        if(root.mRight != null){
-            TreeNode right = transfer(root.mRight);
+        if(root.right != null){
+            TreeNode right = transfer(root.right);
 
-            root.mRight = right;
-            right.mLeft = root;
+            root.right = right;
+            right.left = root;
         }
 
-        while (root.mLeft != null) root = root.mLeft;
+        while (root.left != null) root = root.left;
 
         return  root;
     }

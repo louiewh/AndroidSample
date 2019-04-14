@@ -11,14 +11,14 @@ public class DepthOfBinTree {
     public void test(){
         TreeNode root = new TreeNode(10);
 
-        root.mLeft = new TreeNode(6);
-        root.mRight = new TreeNode(15);
+        root.left = new TreeNode(6);
+        root.right = new TreeNode(15);
 
-        root.mLeft.mLeft = new TreeNode(5);
-        root.mLeft.mRight = new TreeNode(7);
+        root.left.left = new TreeNode(5);
+        root.left.right = new TreeNode(7);
 
-        root.mRight.mLeft = new TreeNode(11);
-        root.mRight.mRight = new TreeNode(16);
+        root.right.left = new TreeNode(11);
+        root.right.right = new TreeNode(16);
 
         int result = maxDepthOfTree(root);
 
@@ -29,8 +29,8 @@ public class DepthOfBinTree {
 
         if(root == null) return  0;
 
-        int leftDept = maxDepthOfTree(root.mLeft);
-        int rightDept = maxDepthOfTree(root.mRight);
+        int leftDept = maxDepthOfTree(root.left);
+        int rightDept = maxDepthOfTree(root.right);
 
         return leftDept > rightDept ? (leftDept+1):(rightDept+1);
     }

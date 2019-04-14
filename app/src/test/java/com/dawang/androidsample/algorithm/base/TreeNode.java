@@ -2,11 +2,11 @@ package com.dawang.androidsample.algorithm.base;
 
 public class TreeNode {
 
-    public int mValue;
-    public TreeNode mLeft;
-    public TreeNode mRight;
+    public int val;
+    public TreeNode left;
+    public TreeNode right;
 
     public TreeNode(int value) {
-        mValue = value;
+        this.val = value;
     }
 }
