@@ -12,7 +12,7 @@ public class A230_KthSmallest {
     private int count = 0;
 
     @Test
-    public void test(){
+    public void test() {
     }
 
     public int kthSmallest(TreeNode root, int k) {
@@ -20,23 +20,24 @@ public class A230_KthSmallest {
         List<Integer> list = new ArrayList<>();
         kthSmallest(root, k, list);
 
-        return list.get(k-1);
+        return list.get(k - 1);
     }
 
 
     public boolean kthSmallest(TreeNode root, int k, List<Integer> result) {
-        if(root == null) return false;
+        if (root == null) return false;
 
-        if(root.left != null && kthSmallest(root.left, k, result)){
+        if (root.left != null && kthSmallest(root.left, k, result)) {
             return true;
         }
 
         result.add(root.val);
-        if(result.size() == k) return true;
+        if (result.size() == k) return true;
 
-        if(root.right != null && kthSmallest(root.right, k, result)){
+        if (root.right != null && kthSmallest(root.right, k, result)) {
             return true;
         }
 
         return false;
     }
+}
