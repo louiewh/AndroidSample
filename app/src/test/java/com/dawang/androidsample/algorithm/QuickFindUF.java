@@ -2,14 +2,14 @@ package com.dawang.androidsample.algorithm;
 
 import org.junit.Test;
 
-public class UF {
+public class QuickFindUF {
     int count;
     int[] IDs;
 
-    public UF( ){
+    public QuickFindUF( ){
     }
 
-    private UF(int N){
+    private QuickFindUF(int N){
         count = N;
         IDs = new int[N];
         for (int i = 0; i < N; i++){
@@ -55,7 +55,7 @@ public class UF {
     @Test
     public void test(){
 
-        UF uf = new UF(8);
+        QuickFindUF uf = new QuickFindUF(8);
         for (int i = 0; i < 8 - 1; i++, i++) {
 
             int p = i;
