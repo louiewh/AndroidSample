@@ -18,6 +18,8 @@ import com.dawang.androidexample.mvp.view.MvpActivity;
 import com.dawang.androidexample.rxjava.RxActivity;
 import com.dawang.androidexample.view.ViewActivity;
 import com.dawang.androidexample.widget.WidgetActivity;
+import com.dawang.androidexample.widget.fragment.ActivityLife;
+import com.dawang.androidexample.widget.fragment.FragmentActivity;
 import com.dawang.androidexample.window.WindowActivity;
 
 import java.util.HashMap;
@@ -99,6 +101,16 @@ public class MainActivity extends AppCompatActivity {
                         Intent  intentRxJava = new Intent();
                         intentRxJava.setClass(mContext, RxActivity.class);
                         mContext.startActivity(intentRxJava);
+                        break;
+                    case 9:
+                        Intent  intentActivity = new Intent();
+                        intentActivity.setClass(mContext, ActivityLife.class);
+                        mContext.startActivity(intentActivity);
+                        break;
+                    case 10:
+                        Intent  intentFragment = new Intent();
+                        intentFragment.setClass(mContext, FragmentActivity.class);
+                        mContext.startActivity(intentFragment);
                         break;
                     default:
                         break;

@@ -21,7 +21,9 @@ public class ExampleBaseAdapter extends BaseAdapter {
             "Design pattern",
             "View",
             "Widget",
-            "RxJava"
+            "RxJava",
+            "Activity",
+            "Fragment"
     };
 
     ExampleBaseAdapter(Context context){

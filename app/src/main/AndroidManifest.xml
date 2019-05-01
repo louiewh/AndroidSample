@@ -23,21 +23,29 @@
         <activity android:name=".mvp.view.MvpActivity" />
         <activity android:name=".designpattern.DesignPatternActivity" />
         <activity android:name=".view.ViewActivity" />
+        <activity android:name=".widget.fragment.FragmentActivity" />
         <activity
             android:name=".widget.WidgetActivity"
             android:label="@string/title_activity_widget"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".widget.recyclerview.RecyclerViewActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".rxjava.RxActivity"
             android:label="@string/title_activity_rx"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".widget.WebViewActivity"
             android:label="@string/title_activity_web_view"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".widget.fragment.ActivityLife"
+            android:label="@string/title_activity_life"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".widget.fragment.ActivityTransparent"
+            android:theme="@style/Theme.AppCompat.Dialog">
+        </activity>
     </application>
 
 </manifest>
