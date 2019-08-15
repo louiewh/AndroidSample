@@ -37,6 +37,16 @@ public class ReverseList {
 
 
         ListNode head = reverseList(root);
+        ListNode head2 =head;
+
+        while (head != null){
+            System.err.print(head.mValue + " ");
+            head = head.next;
+        }
+        System.err.println();
+
+
+        head = reverseListRecursion(head2);
         while (head != null){
             System.err.print(head.mValue + " ");
             head = head.next;
@@ -58,6 +68,19 @@ public class ReverseList {
         }
 
         return head;
+    }
+
+    private ListNode reverseListRecursion(ListNode head){
+        if(head == null || head.next == null){
+            return head;
+        }
+
+        ListNode node = head.next;
+        ListNode newHead = reverseListRecursion(node);
+        node.next = head;
+        head.next = null;
+
+        return newHead;
     }
 
 }
